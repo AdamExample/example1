@@ -1,0 +1,42 @@
+<style>
+.collapsible {
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+}
+</style>
+<body>
+<button type="button" id="collapsible" class="collapsible">collapsible1</button>
+<div class="content">
+text1
+</div>
+<br>
+<button type="button" class="collapsible">collapsible2</button>
+<div class="content">
+text2
+</div>
+<br>
+<button type="button" class="collapsible">Example iframe</button>
+<div class="content">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ThiCMd5kGbE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+ </body>
+ 
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
